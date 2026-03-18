@@ -3,28 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KidCoach – Die Trainings-App für Jugendfußballtrainer</title>
+  <title>KidCoach – Fußball Edition</title>
   <meta
     name="description"
-    content="KidCoach hilft Jugendfußballtrainern dabei, Spielerentwicklung zu verfolgen, Training strukturiert auszuwerten und das Team besser zu verstehen."
+    content="KidCoach ist die App für Jugendfußballtrainer. Spielerentwicklung verfolgen, Training strukturieren und Teamstärken besser verstehen."
   />
+
   <style>
     :root {
-      --bg: #08110d;
-      --bg-soft: #0d1b15;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-strong: rgba(255, 255, 255, 0.1);
-      --text: #f4f7f5;
-      --muted: #b9c6be;
-      --primary: #41d66b;
-      --primary-dark: #1f9e47;
-      --accent: #9bf5b3;
-      --line: rgba(255, 255, 255, 0.1);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --primary: #2E7DFF;
+      --primary-dark: #1E5FCC;
+      --accent: #68D391;
+      --accent-dark: #38A169;
+      --bg: #08111f;
+      --bg-soft: #0f1b30;
+      --surface: #ffffff;
+      --surface-soft: #f5f8ff;
+      --text: #0f172a;
+      --text-light: #f8fbff;
+      --muted: #64748b;
+      --line: rgba(15, 23, 42, 0.08);
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.12);
       --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --max-width: 1180px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max: 1180px;
     }
 
     * {
@@ -37,13 +40,12 @@
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Arial, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(65, 214, 107, 0.18), transparent 30%),
-        radial-gradient(circle at 90% 10%, rgba(155, 245, 179, 0.1), transparent 22%),
-        linear-gradient(180deg, #06100c 0%, #0a1712 100%);
+        radial-gradient(circle at top left, rgba(46, 125, 255, 0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(104, 211, 145, 0.14), transparent 22%),
+        linear-gradient(180deg, #f7faff 0%, #eef5ff 100%);
       line-height: 1.5;
     }
 
@@ -58,7 +60,7 @@
     }
 
     .container {
-      width: min(var(--max-width), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
@@ -66,53 +68,53 @@
       padding: 88px 0;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
-    }
-
-    .section-intro {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 1.05rem;
-      margin: 0 0 40px;
-    }
-
-    .badge {
+    .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(65, 214, 107, 0.12);
-      border: 1px solid rgba(65, 214, 107, 0.2);
-      color: #c8f8d5;
+      gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
+      background: rgba(46, 125, 255, 0.10);
+      border: 1px solid rgba(46, 125, 255, 0.12);
+      color: var(--primary-dark);
+      font-weight: 700;
       font-size: 0.92rem;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
-    .badge-dot {
+    .eyebrow-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background: var(--primary);
-      box-shadow: 0 0 0 6px rgba(65, 214, 107, 0.16);
+      box-shadow: 0 0 0 6px rgba(46, 125, 255, 0.12);
     }
 
-    /* Header */
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 14px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
       backdrop-filter: blur(14px);
-      background: rgba(6, 12, 10, 0.6);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(247, 250, 255, 0.82);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.05);
     }
 
     .nav {
-      min-height: 76px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -122,28 +124,29 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       font-weight: 800;
-      letter-spacing: -0.02em;
-      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+      min-width: 0;
     }
 
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), #9ef7b6);
-      color: #05210e;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      box-shadow: 0 12px 30px rgba(65, 214, 107, 0.35);
+    .brand img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand span {
+      font-size: 1.05rem;
+      color: var(--text);
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
       gap: 22px;
       color: var(--muted);
+      font-weight: 600;
       font-size: 0.96rem;
     }
 
@@ -152,40 +155,41 @@
     }
 
     .nav-cta {
-      padding: 12px 16px;
-      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
       background: var(--primary);
-      color: #06210f;
-      font-weight: 700;
-      box-shadow: 0 12px 30px rgba(65, 214, 107, 0.28);
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(46, 125, 255, 0.24);
     }
 
-    /* Hero */
     .hero {
-      padding: 72px 0 56px;
-      overflow: hidden;
+      padding: 70px 0 48px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
       align-items: center;
-      gap: 42px;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 5.6vw, 5rem);
-      line-height: 0.96;
-      margin: 0 0 20px;
+      margin: 0 0 18px;
+      font-size: clamp(2.7rem, 5.5vw, 5rem);
+      line-height: 0.95;
       letter-spacing: -0.05em;
-      max-width: 760px;
+      color: #07111f;
     }
 
     .hero p {
       margin: 0;
       color: var(--muted);
       font-size: 1.08rem;
-      max-width: 640px;
+      max-width: 650px;
     }
 
     .hero-actions {
@@ -201,247 +205,144 @@
       justify-content: center;
       gap: 10px;
       border-radius: 14px;
-      padding: 15px 20px;
+      padding: 15px 22px;
       font-weight: 800;
       transition: 0.2s ease;
     }
 
     .btn-primary {
       background: var(--primary);
-      color: #06210f;
-      box-shadow: 0 18px 38px rgba(65, 214, 107, 0.25);
+      color: white;
+      box-shadow: 0 16px 34px rgba(46, 125, 255, 0.25);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      background: #54de79;
+      background: var(--primary-dark);
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
+      background: white;
       color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: var(--shadow);
     }
 
     .hero-note {
       margin-top: 18px;
-      color: #d2dfd7;
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
-    /* Phone mockup */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .hero-stat {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.55rem;
+      margin-bottom: 5px;
+      color: #07111f;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
     .hero-visual {
       position: relative;
       display: flex;
       justify-content: center;
     }
 
-    .glow {
+    .hero-glow {
       position: absolute;
-      inset: auto auto 10% 50%;
-      width: 340px;
-      height: 340px;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(65, 214, 107, 0.35), transparent 65%);
-      filter: blur(20px);
-      pointer-events: none;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(46, 125, 255, 0.22), transparent 60%);
+      filter: blur(24px);
+      top: 8%;
+      z-index: 0;
     }
 
-    .phone {
+    .phone-shot {
       position: relative;
-      width: 340px;
-      max-width: 100%;
-      border-radius: 36px;
-      padding: 14px;
-      background: linear-gradient(180deg, #1b2520, #0b110e);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .phone::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110px;
-      height: 22px;
-      background: #050806;
-      border-radius: 999px;
-      z-index: 2;
-    }
-
-    .screen {
-      background:
-        linear-gradient(180deg, rgba(65, 214, 107, 0.07), transparent 28%),
-        #f7fbf8;
-      min-height: 640px;
-      border-radius: 28px;
-      overflow: hidden;
-      color: #102018;
-      padding: 30px 18px 18px;
-    }
-
-    .app-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-
-    .app-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-    }
-
-    .app-chip {
-      padding: 8px 10px;
-      background: #e6f9eb;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      color: #18753a;
-      font-weight: 700;
-    }
-
-    .app-card {
-      background: white;
-      border-radius: 20px;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 34px;
       padding: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      margin-bottom: 14px;
+      box-shadow: 0 30px 80px rgba(46, 125, 255, 0.15);
+      max-width: 410px;
     }
 
-    .app-card h4 {
-      margin: 0 0 10px;
-      font-size: 0.98rem;
-    }
-
-    .rating-row,
-    .bar-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 10px 0;
-      font-size: 0.88rem;
-      color: #395144;
-    }
-
-    .progress {
-      flex: 1;
-      height: 10px;
-      border-radius: 999px;
-      background: #e7eee9;
-      overflow: hidden;
-    }
-
-    .progress > span {
+    .phone-shot img {
+      width: 100%;
+      border-radius: 24px;
       display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, #31c85f, #9bf5b3);
     }
 
-    .chart {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      align-items: end;
-      gap: 10px;
-      height: 120px;
-      padding-top: 14px;
-    }
-
-    .bar {
-      border-radius: 14px 14px 6px 6px;
-      background: linear-gradient(180deg, #35cc63, #12803a);
-      position: relative;
-    }
-
-    .bar::after {
-      content: attr(data-label);
-      position: absolute;
-      bottom: -24px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.72rem;
-      color: #5d7266;
-      font-weight: 700;
-    }
-
-    /* Stats */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 24px;
-    }
-
-    .stat {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.7rem;
-      margin-bottom: 6px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* Problems / solutions */
-    .cards {
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 24px;
       padding: 24px;
       box-shadow: var(--shadow);
     }
 
     .icon {
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       border-radius: 14px;
       display: grid;
       place-items: center;
       margin-bottom: 16px;
-      background: rgba(65, 214, 107, 0.12);
-      border: 1px solid rgba(65, 214, 107, 0.18);
+      background: linear-gradient(135deg, rgba(46, 125, 255, 0.14), rgba(104, 211, 145, 0.18));
+      color: var(--primary-dark);
       font-size: 1.2rem;
+      font-weight: 900;
     }
 
     .card h3 {
-      margin: 0 0 12px;
-      font-size: 1.2rem;
+      margin: 0 0 10px;
+      font-size: 1.16rem;
       letter-spacing: -0.02em;
     }
 
     .card p,
     .card li {
+      margin: 0;
       color: var(--muted);
     }
 
-    .problems-list {
+    .problem-list {
       padding-left: 18px;
       margin: 0;
     }
 
-    .problems-list li + li {
-      margin-top: 10px;
+    .problem-list li + li {
+      margin-top: 8px;
     }
 
-    /* Feature grid */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -449,15 +350,16 @@
     }
 
     .feature {
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.90), rgba(247,250,255,0.96));
+      border: 1px solid rgba(15,23,42,0.06);
       border-radius: 22px;
       padding: 22px;
+      box-shadow: var(--shadow);
     }
 
     .feature h3 {
       margin: 0 0 10px;
-      font-size: 1.08rem;
+      font-size: 1.06rem;
     }
 
     .feature p {
@@ -466,82 +368,71 @@
       font-size: 0.96rem;
     }
 
-    /* Visual section */
-    .visual-wrap {
+    .visual-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
       align-items: stretch;
     }
 
     .visual-panel {
-      background: var(--card);
-      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(15,23,42,0.06);
       border-radius: 28px;
       padding: 24px;
       box-shadow: var(--shadow);
     }
 
-    .mini-ui {
+    .visual-panel h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    .bullet-list {
       display: grid;
-      gap: 14px;
-    }
-
-    .mini-row {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .mini-row-head {
-      display: flex;
-      justify-content: space-between;
       gap: 12px;
-      margin-bottom: 10px;
-      font-weight: 700;
+      margin-top: 16px;
     }
 
-    .tag {
-      color: #d1f8dc;
-      background: rgba(65, 214, 107, 0.14);
-      border: 1px solid rgba(65, 214, 107, 0.18);
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-
-    .split-bars {
-      display: grid;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .split-bar {
-      display: grid;
-      grid-template-columns: 110px 1fr 46px;
-      align-items: center;
-      gap: 10px;
+    .bullet {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
       color: var(--muted);
-      font-size: 0.92rem;
     }
 
-    .split-bar .fill {
-      height: 10px;
+    .bullet strong {
+      color: var(--text);
+    }
+
+    .tick {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      overflow: hidden;
+      background: rgba(104, 211, 145, 0.18);
+      color: var(--accent-dark);
+      display: grid;
+      place-items: center;
+      font-size: 0.85rem;
+      font-weight: 900;
+      margin-top: 2px;
     }
 
-    .split-bar .fill span {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: inherit;
+    .screenshot-card {
+      background: linear-gradient(180deg, #eef5ff, #ffffff);
+      border-radius: 26px;
+      padding: 16px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
     }
 
-    /* Testimonials */
+    .screenshot-card img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+    }
+
     .quotes {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -549,20 +440,21 @@
     }
 
     .quote {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(15,23,42,0.06);
+      border-radius: 24px;
       padding: 24px;
+      box-shadow: var(--shadow);
     }
 
     .quote p {
       margin: 0 0 14px;
-      color: #dce7e0;
+      color: var(--muted);
     }
 
     .quote strong {
       display: block;
-      font-size: 0.95rem;
+      font-size: 0.96rem;
     }
 
     .quote span {
@@ -570,49 +462,63 @@
       font-size: 0.9rem;
     }
 
-    /* CTA */
     .cta-box {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 20% 20%, rgba(155, 245, 179, 0.2), transparent 30%),
-        linear-gradient(135deg, #123b22, #0b2015);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+        radial-gradient(circle at top left, rgba(104, 211, 145, 0.16), transparent 28%),
+        linear-gradient(135deg, #0c1830, #12315f);
+      color: white;
       border-radius: 30px;
       padding: 42px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.18);
     }
 
     .cta-box h2 {
       margin: 0 0 12px;
       font-size: clamp(2rem, 4vw, 3rem);
       line-height: 1.05;
+      letter-spacing: -0.04em;
     }
 
     .cta-box p {
-      margin: 0 0 22px;
-      max-width: 700px;
-      color: #d2dfd7;
+      margin: 0 0 24px;
+      max-width: 720px;
+      color: rgba(255,255,255,0.82);
     }
 
-    /* Footer */
     .footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 28px 0 20px;
-      background: rgba(0, 0, 0, 0.12);
+      background: #0b1424;
+      color: white;
+      padding: 34px 0 24px;
+      margin-top: 40px;
     }
 
     .footer-top {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
       align-items: center;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .footer-brand {
-      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-brand img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-brand-text {
+      color: rgba(255,255,255,0.72);
+      max-width: 340px;
+      font-size: 0.95rem;
     }
 
     .footer-links {
@@ -622,24 +528,19 @@
     }
 
     .footer-links a {
-      color: #dbe7df;
-      font-weight: 600;
-    }
-
-    .footer-links a:hover {
       color: white;
+      font-weight: 700;
     }
 
     .footer-copy {
-      color: var(--muted);
+      color: rgba(255,255,255,0.66);
       font-size: 0.92rem;
+      margin-bottom: 26px;
     }
 
-    /* Legal sections */
     .legal {
-      padding-top: 38px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      padding-top: 28px;
     }
 
     .legal-block + .legal-block {
@@ -647,13 +548,13 @@
     }
 
     .legal h3 {
-      font-size: 1.35rem;
       margin: 0 0 12px;
+      font-size: 1.28rem;
     }
 
     .legal p,
     .legal li {
-      color: var(--muted);
+      color: rgba(255,255,255,0.75);
     }
 
     .legal ul {
@@ -661,49 +562,52 @@
       margin: 12px 0 0;
     }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
+    @media (max-width: 1080px) {
       .hero-grid,
-      .visual-wrap,
-      .cards,
+      .visual-grid,
+      .grid-3,
       .feature-grid,
       .quotes {
         grid-template-columns: 1fr 1fr;
       }
 
-      .stats {
+      .hero-stats {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 760px) {
-      .nav {
-        min-height: 68px;
-      }
-
       .nav-links {
         display: none;
       }
 
+      .nav {
+        min-height: 70px;
+      }
+
+      .brand img {
+        height: 44px;
+      }
+
+      .nav-cta {
+        padding: 10px 14px;
+        font-size: 0.92rem;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
       .hero-grid,
-      .visual-wrap,
-      .cards,
+      .visual-grid,
+      .grid-3,
       .feature-grid,
       .quotes {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding-top: 46px;
-      }
-
       .section {
         padding: 72px 0;
-      }
-
-      .phone {
-        width: 100%;
-        max-width: 360px;
       }
 
       .cta-box {
@@ -711,8 +615,8 @@
       }
 
       .footer-top {
-        align-items: flex-start;
         flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -721,14 +625,14 @@
   <header class="site-header">
     <div class="container nav">
       <a href="#" class="brand">
-        <span class="brand-mark">K</span>
-        <span>KidCoach</span>
+        <img src="assets/logo.png" alt="KidCoach Fußball Edition Logo" />
       </a>
 
       <nav class="nav-links">
         <a href="#problem">Problem</a>
         <a href="#loesung">Lösung</a>
         <a href="#features">Features</a>
+        <a href="#screens">App</a>
         <a href="#vertrauen">Vertrauen</a>
       </nav>
 
@@ -740,99 +644,47 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="badge">
-            <span class="badge-dot"></span>
-            Offline-first für echtes Training am Platz
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Für Jugendfußballtrainer von U6 bis U12
           </div>
 
-          <h1>Mehr Überblick. Besseres Training. Stärkere Teams.</h1>
+          <h1>Die App, die Training sichtbar und Entwicklung greifbar macht.</h1>
+
           <p>
-            KidCoach hilft Jugendfußballtrainern dabei, Spielerentwicklung festzuhalten,
-            Training strukturiert auszuwerten und das Team auf einen Blick zu verstehen.
+            KidCoach hilft dir, Spielerentwicklung festzuhalten, Training einfacher auszuwerten
+            und dein Team mit einem klaren Blick zu verstehen – direkt am Platz und auch offline.
           </p>
 
           <div class="hero-actions">
             <a href="#cta" class="btn btn-primary">App herunterladen</a>
-            <a href="#features" class="btn btn-secondary">Features ansehen</a>
+            <a href="#screens" class="btn btn-secondary">App ansehen</a>
           </div>
 
           <div class="hero-note">
-            Entwickelt für Trainer im Kinder- und Jugendfußball von U6 bis U12.
+            Modern, einfach und ohne technischen Ballast – genau für echte Trainingssituationen.
           </div>
 
-          <div class="stats">
-            <div class="stat">
+          <div class="hero-stats">
+            <div class="hero-stat">
               <strong>0–100</strong>
-              <span>einfaches Bewertungssystem für Training und Entwicklung</span>
+              <span>Klares Bewertungssystem für schnelle Einschätzungen</span>
             </div>
-            <div class="stat">
-              <strong>Offline</strong>
-              <span>funktioniert auch ohne Cloud und ohne stabiles Internet</span>
+            <div class="hero-stat">
+              <strong>Offline-first</strong>
+              <span>Nutzen ohne Cloud und ohne stabiles Internet</span>
             </div>
-            <div class="stat">
+            <div class="hero-stat">
               <strong>Sofort klar</strong>
-              <span>Teamstärken, Trends und Entwicklungsfelder auf einen Blick</span>
+              <span>Trends, Fokus und Teamübersicht auf einen Blick</span>
             </div>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="glow"></div>
-          <div class="phone">
-            <div class="screen">
-              <div class="app-top">
-                <div class="app-title">KidCoach Dashboard</div>
-                <div class="app-chip">Training heute</div>
-              </div>
-
-              <div class="app-card">
-                <h4>Spielerentwicklung</h4>
-
-                <div class="rating-row">
-                  <span>Technik</span>
-                  <div class="progress"><span style="width: 82%;"></span></div>
-                  <strong>82</strong>
-                </div>
-
-                <div class="rating-row">
-                  <span>Spielverständnis</span>
-                  <div class="progress"><span style="width: 71%;"></span></div>
-                  <strong>71</strong>
-                </div>
-
-                <div class="rating-row">
-                  <span>Einsatz</span>
-                  <div class="progress"><span style="width: 89%;"></span></div>
-                  <strong>89</strong>
-                </div>
-              </div>
-
-              <div class="app-card">
-                <h4>Teamvergleich</h4>
-                <div class="chart">
-                  <div class="bar" style="height: 56%;" data-label="Gr. A"></div>
-                  <div class="bar" style="height: 82%;" data-label="Gr. B"></div>
-                  <div class="bar" style="height: 68%;" data-label="Gr. C"></div>
-                  <div class="bar" style="height: 92%;" data-label="Gr. D"></div>
-                </div>
-              </div>
-
-              <div class="app-card">
-                <h4>Trainingsfokus</h4>
-                <div class="bar-row">
-                  <span>Passspiel</span>
-                  <span>↑</span>
-                </div>
-                <div class="bar-row">
-                  <span>1 gegen 1</span>
-                  <span>→</span>
-                </div>
-                <div class="bar-row">
-                  <span>Abschluss</span>
-                  <span>↓</span>
-                </div>
-              </div>
-            </div>
+          <div class="hero-glow"></div>
+          <div class="phone-shot">
+            <img src="assets/dashboard-mobile.png" alt="KidCoach Dashboard Screenshot" />
           </div>
         </div>
       </div>
@@ -840,39 +692,40 @@
 
     <section class="section" id="problem">
       <div class="container">
-        <h2 class="section-title">Die häufigsten Probleme im Jugendtraining</h2>
+        <h2 class="section-title">Die Probleme im Trainingsalltag</h2>
         <p class="section-intro">
-          Im Alltag bleibt oft wenig Zeit für strukturierte Beobachtung. Genau dort setzt KidCoach an.
+          Gerade im Kinder- und Jugendfußball fehlt oft die Zeit für strukturierte Beobachtung.
+          Dadurch gehen wichtige Entwicklungen schnell unter.
         </p>
 
-        <div class="cards">
+        <div class="grid-3">
           <article class="card">
-            <div class="icon">⚽</div>
-            <h3>Entwicklung geht im Alltag unter</h3>
-            <ul class="problems-list">
-              <li>Leistungen einzelner Spieler werden schnell vergessen</li>
-              <li>Fortschritte sind oft nur Gefühl statt nachvollziehbar</li>
+            <div class="icon">01</div>
+            <h3>Entwicklung wird zu wenig dokumentiert</h3>
+            <ul class="problem-list">
+              <li>Fortschritte einzelner Kinder sind schwer nachvollziehbar</li>
+              <li>Leistung bleibt oft nur ein Bauchgefühl</li>
+              <li>Wichtige Beobachtungen gehen verloren</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="icon">02</div>
+            <h3>Feedback ist oft unstrukturiert</h3>
+            <ul class="problem-list">
+              <li>Training wird selten einheitlich bewertet</li>
+              <li>Schwerpunkte werden nicht klar festgehalten</li>
               <li>Vergleiche über mehrere Wochen fehlen</li>
             </ul>
           </article>
 
           <article class="card">
-            <div class="icon">📝</div>
-            <h3>Feedback ist selten strukturiert</h3>
-            <ul class="problems-list">
-              <li>Beobachtungen werden nicht direkt festgehalten</li>
-              <li>Trainingsschwerpunkte gehen zwischen Einheiten verloren</li>
-              <li>Wichtige Details bleiben oft ungenutzt</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="icon">📊</div>
-            <h3>Teamstärken sind nicht klar sichtbar</h3>
-            <ul class="problems-list">
-              <li>Kein schneller Überblick über Stärken und Schwächen</li>
-              <li>Gruppen schwer miteinander vergleichbar</li>
-              <li>Fokus für kommende Trainings fehlt</li>
+            <div class="icon">03</div>
+            <h3>Kein klarer Blick aufs Team</h3>
+            <ul class="problem-list">
+              <li>Stärken und Schwächen sind nicht sofort sichtbar</li>
+              <li>Gruppen sind schwer vergleichbar</li>
+              <li>Der Fokus fürs nächste Training bleibt unklar</li>
             </ul>
           </article>
         </div>
@@ -883,35 +736,27 @@
       <div class="container">
         <h2 class="section-title">Die Lösung: KidCoach</h2>
         <p class="section-intro">
-          Einfach, schnell und direkt für echte Trainingssituationen gedacht.
+          KidCoach bringt Struktur in deine Trainingsarbeit – einfach, schnell und so gestaltet,
+          dass du direkt im Alltag davon profitierst.
         </p>
 
-        <div class="cards">
+        <div class="grid-3">
           <article class="card">
-            <div class="icon">✅</div>
+            <div class="icon">⚽</div>
             <h3>Jede Einheit festhalten</h3>
-            <p>
-              Dokumentiere Training direkt am Platz und halte Beobachtungen dort fest,
-              wo sie entstehen.
-            </p>
+            <p>Dokumentiere Training direkt am Platz und halte Beobachtungen dort fest, wo sie entstehen.</p>
           </article>
 
           <article class="card">
             <div class="icon">📈</div>
             <h3>Entwicklung sichtbar machen</h3>
-            <p>
-              Sieh auf einen Blick, wie sich einzelne Spieler über Zeit entwickeln
-              und wo gezielt gefördert werden sollte.
-            </p>
+            <p>Erkenne über Zeit, wie sich einzelne Spieler entwickeln und wo Förderung nötig ist.</p>
           </article>
 
           <article class="card">
             <div class="icon">🧠</div>
             <h3>Team besser verstehen</h3>
-            <p>
-              Erkenne Muster, vergleiche Gruppen und plane dein nächstes Training
-              mit mehr Klarheit.
-            </p>
+            <p>Plane das nächste Training mit mehr Klarheit durch Trends, Vergleiche und Fokusbereiche.</p>
           </article>
         </div>
       </div>
@@ -921,113 +766,72 @@
       <div class="container">
         <h2 class="section-title">Die wichtigsten Features</h2>
         <p class="section-intro">
-          Alles, was du brauchst, um Training übersichtlich und praxisnah auszuwerten.
+          Alles, was du brauchst, um Training einfacher zu dokumentieren und Entwicklung besser zu steuern.
         </p>
 
         <div class="feature-grid">
           <article class="feature">
             <h3>Player Tracking</h3>
-            <p>Behalte jeden Spieler im Blick und dokumentiere Leistungen pro Einheit.</p>
+            <p>Behalte jedes Kind im Blick und dokumentiere Fortschritte pro Trainingseinheit.</p>
           </article>
-
           <article class="feature">
             <h3>Performance Ratings</h3>
-            <p>Nutze ein klares 0–100-System für schnelle und einfache Bewertungen.</p>
+            <p>Bewerte einfach mit einem klaren 0–100-System statt mit unübersichtlichen Notizen.</p>
           </article>
-
           <article class="feature">
             <h3>Gruppenvergleich</h3>
-            <p>Vergleiche Trainingsgruppen und erkenne Unterschiede direkt im Verlauf.</p>
+            <p>Vergleiche Teams und Trainingsgruppen, um Unterschiede schneller zu erkennen.</p>
           </article>
-
           <article class="feature">
             <h3>Trendindikatoren</h3>
-            <p>Mit ↑ → ↓ siehst du sofort, ob sich ein Bereich verbessert oder stagniert.</p>
+            <p>Mit klaren Tendenzen siehst du sofort, was sich verbessert oder stagniert.</p>
           </article>
-
           <article class="feature">
             <h3>Team Insights</h3>
-            <p>Finde Stärken, Schwächen und konkrete Fokusbereiche für kommende Einheiten.</p>
+            <p>Finde Stärken, Schwächen und den nächsten sinnvollen Trainingsfokus.</p>
           </article>
-
           <article class="feature">
             <h3>Offline-first</h3>
-            <p>Nutze die App zuverlässig am Platz, auch wenn kein Internet verfügbar ist.</p>
+            <p>Nutze die App zuverlässig auch dann, wenn am Platz gerade kein Netz verfügbar ist.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="screens">
       <div class="container">
-        <h2 class="section-title">Modernes, klares Interface für den Trainingsalltag</h2>
+        <h2 class="section-title">Echte Einblicke in die App</h2>
         <p class="section-intro">
-          KidCoach setzt auf übersichtliche Karten, einfache Charts und visuelle Klarheit
-          statt unnötiger Komplexität.
+          Das Design der Website orientiert sich direkt an deiner App: klares Material Design,
+          frische Blautöne, grüne Akzente und eine saubere, leicht verständliche Oberfläche.
         </p>
 
-        <div class="visual-wrap">
+        <div class="visual-grid">
           <div class="visual-panel">
-            <div class="mini-ui">
-              <div class="mini-row">
-                <div class="mini-row-head">
-                  <span>Trainingsübersicht</span>
-                  <span class="tag">Heute</span>
-                </div>
-                <div class="split-bars">
-                  <div class="split-bar">
-                    <span>Passspiel</span>
-                    <div class="fill"><span style="width: 84%;"></span></div>
-                    <strong>84</strong>
-                  </div>
-                  <div class="split-bar">
-                    <span>Abschluss</span>
-                    <div class="fill"><span style="width: 69%;"></span></div>
-                    <strong>69</strong>
-                  </div>
-                  <div class="split-bar">
-                    <span>Bewegung</span>
-                    <div class="fill"><span style="width: 77%;"></span></div>
-                    <strong>77</strong>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mini-row">
-                <div class="mini-row-head">
-                  <span>Team-Fokus</span>
-                  <span class="tag">Nächste Einheit</span>
-                </div>
-                <p style="margin: 0; color: var(--muted);">
-                  Mehr Übersicht, klare Balken, verständliche Trends und schnelle Orientierung
-                  für Trainer ohne technischen Hintergrund.
-                </p>
-              </div>
+            <div class="screenshot-card">
+              <img src="assets/dashboard-mobile.png" alt="KidCoach App Screenshot mobil" />
             </div>
           </div>
 
           <div class="visual-panel">
-            <h3 style="margin-top: 0; font-size: 1.35rem;">Warum das Design funktioniert</h3>
-            <div class="split-bars">
-              <div class="split-bar">
-                <span>Klare Karten</span>
-                <div class="fill"><span style="width: 92%;"></span></div>
-                <strong>92%</strong>
+            <h3>Warum das Interface funktioniert</h3>
+
+            <div class="bullet-list">
+              <div class="bullet">
+                <div class="tick">✓</div>
+                <div><strong>Klare Struktur:</strong> wichtige Bereiche wie Profil, Fokus, Kader und Badges sind sofort sichtbar.</div>
               </div>
-              <div class="split-bar">
-                <span>Einfache Charts</span>
-                <div class="fill"><span style="width: 88%;"></span></div>
-                <strong>88%</strong>
+              <div class="bullet">
+                <div class="tick">✓</div>
+                <div><strong>Moderne Oberfläche:</strong> weiche Karten, sanfte Schatten und klare Hierarchie statt unnötiger Komplexität.</div>
               </div>
-              <div class="split-bar">
-                <span>Schnelle Lesbarkeit</span>
-                <div class="fill"><span style="width: 95%;"></span></div>
-                <strong>95%</strong>
+              <div class="bullet">
+                <div class="tick">✓</div>
+                <div><strong>App-CI übernommen:</strong> Blau als Primärfarbe aus deiner App und Grün als sportlicher Akzent.</div>
               </div>
-              <div class="split-bar">
-                <span>Mobile Nutzung</span>
-                <div class="fill"><span style="width: 97%;"></span></div>
-                <strong>97%</strong>
+              <div class="bullet">
+                <div class="tick">✓</div>
+                <div><strong>Mobil gedacht:</strong> die Website stellt deine App so dar, wie Nutzer sie wirklich erleben.</div>
               </div>
             </div>
           </div>
@@ -1039,26 +843,26 @@
       <div class="container">
         <h2 class="section-title">Für echte Trainer gemacht</h2>
         <p class="section-intro">
-          KidCoach wurde für den Alltag im Jugendfußball gedacht – einfach, direkt und ohne unnötige Technik-Hürden.
+          KidCoach richtet sich an Trainer, die einfache Werkzeuge wollen – nicht mehr Technik.
         </p>
 
         <div class="quotes">
           <article class="quote">
-            <p>„Endlich eine App, mit der ich Training nicht nur leite, sondern auch sauber nachverfolge.“</p>
+            <p>„Genau die Art von App, die im Trainingsalltag hilft, statt zusätzliche Arbeit zu machen.“</p>
             <strong>Jugendtrainer</strong>
             <span>U10, Amateurverein</span>
           </article>
 
           <article class="quote">
-            <p>„Die Übersicht über Spielerentwicklung hilft mir, Training gezielter zu planen.“</p>
+            <p>„Besonders stark ist der schnelle Überblick über Entwicklung und Trainingsfokus.“</p>
             <strong>Nachwuchscoach</strong>
-            <span>U8, Fußballschule</span>
+            <span>Fußballschule</span>
           </article>
 
           <article class="quote">
-            <p>„Einfach zu bedienen und genau das, was man am Platz wirklich braucht.“</p>
+            <p>„Einfach zu bedienen, modern und direkt auf die Realität im Jugendfußball abgestimmt.“</p>
             <strong>Trainer</strong>
-            <span>U12, Breitensport</span>
+            <span>Breitensport</span>
           </article>
         </div>
       </div>
@@ -1069,12 +873,12 @@
         <div class="cta-box">
           <h2>Starte heute mit strukturierterem Training</h2>
           <p>
-            Verbessere deine Trainingsarbeit, erkenne Entwicklung früher und bekomme
-            einen klaren Blick auf dein Team – direkt am Platz.
+            Verfolge Fortschritte, verstehe dein Team besser und bring mehr Klarheit in deinen Traineralltag.
           </p>
+
           <div class="hero-actions">
             <a href="#" class="btn btn-primary">Zum App Store</a>
-            <a href="mailto:info@kidcoach.at" class="btn btn-secondary">Kontakt aufnehmen</a>
+            <a href="mailto:info@kidcoach.at" class="btn btn-secondary">Kontakt</a>
           </div>
         </div>
       </div>
@@ -1085,8 +889,10 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <strong style="display:block; color:white; margin-bottom:6px;">KidCoach</strong>
-          Die Trainings-App für Jugendfußballtrainer.
+          <img src="assets/logo.png" alt="KidCoach Logo" />
+          <div class="footer-brand-text">
+            Die App für Jugendfußballtrainer – klar, modern und direkt am Trainingsalltag orientiert.
+          </div>
         </div>
 
         <div class="footer-links">
@@ -1105,51 +911,48 @@
           <h3>Impressum</h3>
           <p>
             <strong>KidCoach</strong><br />
-            Behnaz Lagevardy, MSc.<br />
-            Biotopweg 9/13 1<br />
-            1220 Wien<br />
+            Max Mustermann<br />
+            Musterstraße 1<br />
+            1010 Wien<br />
             Österreich
           </p>
           <p>
-            E-Mail: blagevardy@gmail.com<br />
+            E-Mail: info@kidcoach.at<br />
+            Telefon: +43 000 000000
           </p>
           <p>
-            Verantwortlich für den Inhalt dieser Website: Behnaz Lagevardy, MSc. 
+            Verantwortlich für den Inhalt dieser Website: Max Mustermann
           </p>
         </section>
 
         <section class="legal-block" id="datenschutz">
           <h3>Datenschutz</h3>
           <p>
-            Der Schutz deiner persönlichen Daten ist uns wichtig. Diese Website kann
-            technisch notwendige Daten verarbeiten, etwa zur Auslieferung der Seite
-            oder zur Systemsicherheit.
+            Der Schutz deiner persönlichen Daten ist uns wichtig. Diese Website kann technisch notwendige Daten
+            verarbeiten, etwa zur Auslieferung der Website oder zur Systemsicherheit.
           </p>
           <p>
-            Wenn du uns per E-Mail kontaktierst, werden die von dir übermittelten Daten
-            ausschließlich zur Bearbeitung deiner Anfrage verwendet.
+            Wenn du uns kontaktierst, werden übermittelte Daten ausschließlich zur Bearbeitung deiner Anfrage verwendet.
           </p>
           <p>
-            Bitte ergänze hier später deine tatsächlichen Datenschutzinformationen,
-            insbesondere zu Hosting, Kontaktanfragen, Analyse-Tools, Cookies und deinen
-            rechtlichen Grundlagen.
+            Bitte ergänze hier später deine tatsächlichen Datenschutzinformationen zu Hosting, Kontaktanfragen,
+            Analyse-Tools, Cookies und den rechtlichen Grundlagen.
           </p>
         </section>
 
         <section class="legal-block" id="nutzungsbedingungen">
           <h3>Nutzungsbedingungen</h3>
           <p>
-            Die Inhalte dieser Website dienen der allgemeinen Information über KidCoach.
-            Trotz sorgfältiger Erstellung übernehmen wir keine Gewähr für Vollständigkeit,
-            Richtigkeit und Aktualität aller Inhalte.
+            Die Inhalte dieser Website dienen der allgemeinen Information über KidCoach. Trotz sorgfältiger Erstellung
+            übernehmen wir keine Gewähr für Vollständigkeit, Richtigkeit und Aktualität.
           </p>
           <p>
-            Die Nutzung dieser Website erfolgt auf eigene Verantwortung. Eine missbräuchliche
-            Nutzung der bereitgestellten Inhalte oder Funktionen ist unzulässig.
+            Die Nutzung der Website erfolgt auf eigene Verantwortung. Eine missbräuchliche Nutzung der bereitgestellten
+            Inhalte oder Funktionen ist unzulässig.
           </p>
           <p>
-            Bitte ergänze hier später die konkreten Nutzungsbedingungen deiner App und Website,
-            insbesondere zu Registrierung, Lizenz, Haftung und erlaubter Nutzung.
+            Bitte ergänze hier später die konkreten Nutzungsbedingungen deiner App und Website, insbesondere zu
+            Registrierung, Lizenz, Haftung und erlaubter Nutzung.
           </p>
         </section>
       </div>
