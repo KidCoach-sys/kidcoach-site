@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KidCoach</title>
+</head>
+
+<body style="margin:0;padding:32px;background:#f3f6fb;font-family:Arial,sans-serif;">
+
+<div style="
+  max-width:620px;
+  margin:0 auto;
+  background:white;
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+">
+
+<h1 id="title"></h1>
+
+<p id="message" style="
+  color:#374151;
+  line-height:1.7;
+  font-size:17px;
+"></p>
+
+<div style="
+  margin-top:28px;
+  padding-top:18px;
+  border-top:1px solid #e5e7eb;
+  color:#6b7280;
+  font-size:13px;
+">
+  KidCoach
+</div>
+
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('status');
+
+  const accepted = status === 'accepted';
+
+  document.getElementById('title').innerText =
+    accepted
+      ? 'Teilnahme zugesagt'
+      : 'Teilnahme abgesagt';
+
+  document.getElementById('message').innerText =
+    accepted
+      ? 'Danke! Die Teilnahme wurde erfolgreich zugesagt.'
+      : 'Danke! Die Teilnahme wurde erfolgreich abgesagt.';
+</script>
+
+</body>
+</html>
